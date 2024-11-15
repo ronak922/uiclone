@@ -8,6 +8,45 @@ import serviceImage1 from "./assets/images/service-magnifier-web-search-with-ele
 import serviceImage2 from "./assets/images/service-selecting-a-value-in-the-browser-window.webp";
 import { IconFacebook, IconLinkedIn, IconTwitter } from "./components/icons";
 
+type TNavLink = {
+  title: string;
+  url: string;
+};
+
+type TCompany = {
+  image: any;
+  alt: string;
+  width: number;
+  height: number;
+  url: string;
+};
+
+type TService = {
+  card: { variant: string };
+  header: { titles: string[]; variant: string };
+  body: { src: any; alt: string; width: number; height: number };
+  button: { variant: string };
+};
+
+type TWorkingProcess = {
+  title: string;
+  description: string;
+};
+
+type TTeam = any;
+
+type TTestimonial = {
+  name: string;
+  title: string;
+  review: string;
+};
+
+type SocialMedia = {
+  title: string;
+  url: string;
+  icon: JSX.Element;
+};
+
 type TData = {
   navlinks: TNavLink[];
   companies: TCompany[];
@@ -48,19 +87,19 @@ const data: TData = {
       height: 48,
       url: "https://www.notion.so",
     },
-    {image: companyHubspotImage,
+    {
+      image: companyHubspotImage,
       alt: "HubSpot",
       width: 128.63,
       height: 48,
       url: "https://www.hubspot.com",
-
     },
-    {image: companyDribbbleImage,
+    {
+      image: companyDribbbleImage,
       alt: "Dribbble",
       width: 126.37,
       height: 48,
       url: "https://dribbble.com",
-
     },
     {
       image: companyAmazonImage,
@@ -69,9 +108,6 @@ const data: TData = {
       height: 48,
       url: "https://www.amazon.com",
     },
-    
-   
-    
   ],
   services: [
     {
@@ -133,7 +169,7 @@ const data: TData = {
       icon: <IconTwitter width={17} height={17} />,
     },
   ],
-} as const;
+};
 
 export const {
   companies: companiesData,

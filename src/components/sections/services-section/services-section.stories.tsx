@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import data from "../../../data";
+
 import ServicesSection from "./services-section";
 
-const meta = {
+const meta: Meta<typeof ServicesSection> = {
   title: "Components/Sections/ServicesSection",
   component: ServicesSection,
   parameters: {
@@ -11,14 +11,12 @@ const meta = {
       defaultViewport: "desktop",
     },
   },
-} satisfies Meta<typeof ServicesSection>;
+};
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof ServicesSection>;
 
 export const Default: Story = {
-  args: {
-    data: data.services,
-  },
+  args: {},
 };

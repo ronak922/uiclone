@@ -11,53 +11,36 @@ const CompanySection = forwardRef<HTMLDivElement, CompanySectionProps>(
   ({ data, ...restProps }, ref) => {
     const className = mcn([styles["company-section"], restProps.className]);
 
+    const renderCompanyList = (direction: 'to-left' | 'to-right') => (
+      <Marquee
+        className={styles["company-section__list"]}
+        speed={25}
+        direction={direction}
+        pauseOnHover
+      >
+        {data.map(({ image, width, height, alt, url }, index) => (
+          <a
+            key={`company-list-${direction}-${alt}-${index}`}
+            href={url}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              style={{
+                width: `auto`,
+                height: `${height}px`,
+              }}
+              {...{ src: image, width, height, alt }}
+            />
+          </a>
+        ))}
+      </Marquee>
+    );
+
     return (
       <section {...{ ref, ...restProps, className }}>
-        <Marquee
-          className={styles["company-section__list"]}
-          speed={25}
-          pauseOnHover
-        >
-          {data.map(({ image, width, height, alt, url }) => (
-            <a
-              key={`company-list-1-${alt}`}
-              href={url}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img
-                style={{
-                  width: `auto`,
-                  height: `${height}px`,
-                }}
-                {...{ src: image, width, height, alt }}
-              />
-            </a>
-          ))}
-        </Marquee>
-        <Marquee
-          className={styles["company-section__list"]}
-          speed={25}
-          direction="to-right"
-          pauseOnHover
-        >
-          {data.reverse().map(({ image, width, height, alt, url }) => (
-            <a
-              key={`company-list-2-${alt}`}
-              href={url}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img
-                style={{
-                  width: `auto`,
-                  height: `${height}px`,
-                }}
-                {...{ src: image, width, height, alt }}
-              />
-            </a>
-          ))}
-        </Marquee>
+        {renderCompanyList('to-left')}
+        {renderCompanyList('to-right')}
       </section>
     );
   }

@@ -1,9 +1,9 @@
 import { forwardRef, HTMLAttributes } from "react";
 import { mcn } from "../../../lib/utils";
-import ButtonIcon from "../../button-icon/button-icon";
-import Card from "../../card/card";
+
+
 import Heading from "../../heading/heading";
-import { IconArrow } from "../../icons";
+
 import Typography from "../../typography/typography";
 import styles from "./case-studies-section.module.css";
 
